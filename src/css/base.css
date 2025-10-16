@@ -2,7 +2,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   color: var(--black);
-  background-color: var(--white);
+  background-color: var(--darc-bg);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,6 +14,10 @@ body {
   min-width: 100vw;
   min-height: 100vh;
   margin: 0;
+}
+
+.hero-wrapper {
+  background: url('../img//hero/bg.png') center/cover no-repeat;
 }
 
 /* main {

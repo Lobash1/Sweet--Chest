@@ -1,7 +1,10 @@
 .header {
-  background-color: #747bff;
   padding: 10px 0;
 }
+
+/* .header {
+  background: url('../img/hero/bg.png') center/cover no-repeat;
+} */
 
 .nav {
   display: flex;
