@@ -18,7 +18,7 @@
 }
 
 .hero-smoke {
-  background: url('../img/hero/smoke.png') bottom center/contain no-repeat;
+  background: url('/img/hero/smoke.png') bottom center/contain no-repeat;
   opacity: 0.6;
   z-index: 2;
   /* animation: float 8s ease-in-out infinite; */
@@ -27,16 +27,16 @@
 .hero-raspberries {
   position: absolute;
   inset: 0;
-  background: url('../img/hero/berry1.png') left -20px top 25% / 160px no-repeat,
-    url('../img/hero/berry2.png') right -20px top 15% / 160px no-repeat,
-    url('../img/hero/berry3.png') right 300px bottom 10% / 160px no-repeat;
+  background: url('/img/hero/berry1.png') left -20px top 25% / 160px no-repeat,
+    url('/img/hero/berry2.png') right -20px top 15% / 160px no-repeat,
+    url('/img/hero/berry3.png') right 300px bottom 10% / 160px no-repeat;
   z-index: 3;
   pointer-events: none;
   animation: float 10s ease-in-out infinite;
 }
 
 .hero-leaf {
-  background: url('../img/hero/leaf.png') left -120px bottom -20px / auto 50%
+  background: url('/img/hero/leaf.png') left -120px bottom -20px / auto 50%
     no-repeat;
   z-index: 3;
 }

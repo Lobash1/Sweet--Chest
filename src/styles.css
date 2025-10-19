@@ -1,0 +1,18 @@
+@import url(./css/reset.css);
+@import url(./css/base.css);
+@import url(./css/container.css);
+@import url(./css/layout.css);
+
+@import url(./css/header.css);
+@import url(./css/hero.css);
+@import url(./css/content.css);
+@import url(./css/service.css);
+@import url(./css/about.css);
+
+:root {
+  --white: #fff;
+  --btn: #2e363e;
+  --black: #2e363e;
+  --link: #4a94ff;
+  --darc-bg: #081130;
+}
