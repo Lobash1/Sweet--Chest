@@ -54,15 +54,12 @@
   margin-bottom: 277px;
 }
 .hero-pre-title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   padding: 10px 18px;
-  gap: 10px;
-  background: #f2f6fa;
+  background-color: #f2f6fa;
   border-radius: 5px;
   margin-bottom: 24px;
   color: var(--black);
+  text-transform: uppercase;
 }
 .hero-title {
   font-size: 22px;

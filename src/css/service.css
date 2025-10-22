@@ -59,15 +59,13 @@
   top: 10vh;
 }
 .service-pre-title {
-  display: inline-block;
-  flex-direction: row;
-  align-items: center;
   padding: 10px 18px;
-  gap: 10px;
   background: #f2f6fa;
   border-radius: 5px;
-  margin-bottom: 24px;
-  color: var(--black);
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 .service-title {
   font-weight: 500;
@@ -86,7 +84,7 @@
   padding: 20px 40px;
   width: 320px;
   height: auto;
-  background: #fed84c;
+  background-color: #fed84c;
   border-radius: 8px;
   font-weight: 500;
   font-size: 12px;
@@ -105,7 +103,6 @@
     justify-content: flex-end;
     align-items: flex-end;
     min-height: 700px;
-    /* padding-bottom: 130px;  */
     overflow: visible;
   }
 
@@ -153,7 +150,7 @@
 
 @media only screen and (min-width: 1200px) {
   .service {
-    min-height: 900px;
+    min-height: 990px;
   }
 
   .service-container {
@@ -162,7 +159,7 @@
 
   .service-texts {
     max-width: 481px;
-    margin-bottom: 220px;
+    margin-bottom: 260px;
   }
 
   .phone {
