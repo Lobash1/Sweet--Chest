@@ -1,34 +1,39 @@
 .about {
+  min-height: 100vh;
   background: var(--white);
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  align-items: center; */
+  padding: 60px 20px;
 }
 .about-container {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
 }
 .about-texts {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 50px;
-  max-width: 580px;
+  gap: 30px;
+  max-width: 480px;
 }
 .about-pre-title {
   border-radius: 5px;
-  padding: 10px 18px;
+  padding: 8px 16px;
   background-color: #f2f6fa;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1.5;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .about-title {
   font-weight: 500;
-  font-size: 48px;
+  font-size: 28px;
   line-height: 1.25;
   letter-spacing: -0.02em;
   color: var(--black);
@@ -36,20 +41,24 @@
 .about-text {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  max-width: 438px;
+  gap: 20px;
 }
 .about-item {
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
+  gap: 8px;
+}
+.about-item svg {
+  flex-shrink: 0;
+  margin-top: 6px;
 }
 .about-btn {
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.52;
   border: none;
   border-radius: 8px;
-  padding: 30px 50px;
+  padding: 20px 40px;
   background-color: #fed84c;
   color: var(--btn);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -61,64 +70,46 @@
 
 .about-woman {
   position: relative;
-  width: 580px;
-  height: 500px;
-}
-
-.about-krug,
-.about-photo,
-.about-photo1,
-.about-berry,
-.about-leaf {
-  position: absolute;
-  max-width: 100%;
-  height: auto;
-}
-
-.about-krug {
-  top: 250px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .about-photo {
+  display: block;
+  position: static;
+  width: 100%;
+  height: auto;
+  z-index: 2;
+  /* position: absolute;
+  max-width: 100%;
+  height: auto;
   top: 26px;
   left: 53%;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 2; */
 }
 
-.about-photo1 {
-  top: 250px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 3;
-}
-
-.about-berry {
-  top: 120px;
-  width: 50%;
-}
-
+.about-krug,
+.about-photo1,
+.about-berry,
 .about-leaf {
-  top: 150px;
-  right: 30px;
-  width: 250px;
+  display: none;
 }
 
 .about-name {
-  position: absolute;
-  bottom: -160px;
-  left: 8%;
-  transform: translateX(-50%);
-  z-index: 4;
+  margin-top: 20px;
+  text-align: center;
 }
 
 .about-name-title {
-  padding: 15px 25px;
+  display: inline-block;
+  padding: 10px 20px;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 18px;
   letter-spacing: -0.01em;
   color: #fff;
   background-color: #2e363e;
@@ -126,10 +117,192 @@
 }
 
 .about-name-subtitle {
+  display: inline-block;
   background: #f2f6fa;
-  font-size: 18px;
+  font-size: 14px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 15px 25px;
+  padding: 10px 20px;
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ========== TABLET (min-width: 768px) ========== */
+@media only screen and (min-width: 768px) {
+  .about {
+    padding: 80px 40px;
+  }
+
+  .about-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+  .about-texts {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .about-woman {
+    min-width: 420px;
+    height: 420px;
+  }
+
+  .about-photo,
+  .about-krug,
+  .about-photo1,
+  .about-berry,
+  .about-leaf {
+    display: block;
+    position: absolute;
+  }
+
+  .about-krug {
+    top: 84px;
+    left: 47%;
+    transform: translateX(-50%);
+    z-index: 1;
+    width: 393px;
+  }
+
+  .about-photo {
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    z-index: 3;
+  }
+
+  .about-photo1 {
+    top: 100px;
+    left: 47%;
+    transform: translateX(-50%);
+    width: 380px;
+    z-index: 2;
+  }
+
+  .about-berry {
+    top: 10px;
+    left: 0;
+    width: 170px;
+  }
+
+  .about-leaf {
+    top: 10px;
+    right: 0;
+    width: 170px;
+  }
+
+  .about-name {
+    position: absolute;
+    bottom: -100px;
+    /* left: -3%; */
+    /* transform: translateX(-50%); */
+    z-index: 3;
+  }
+
+  .about-name-title {
+    font-size: 20px;
+  }
+
+  .about-name-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* ========== DESKTOP (min-width: 1200px) ========== */
+
+@media only screen and (min-width: 1200px) {
+  .about {
+    min-height: 100vh;
+    /* padding: 120px 60px; */
+  }
+
+  .about-container {
+    gap: 20px;
+  }
+
+  .about-texts {
+    gap: 50px;
+    max-width: 580px;
+  }
+
+  .about-title {
+    font-size: 48px;
+  }
+
+  .about-pre-title {
+    padding: 10px 18px;
+    font-size: 11px;
+  }
+  .about-text {
+    gap: 30px;
+    max-width: 438px;
+  }
+  .about-item {
+    font-size: 18px;
+  }
+  .about-btn {
+    font-size: 18px;
+    padding: 30px 50px;
+    background-color: #fed84c;
+  }
+
+  .about-woman {
+    position: relative;
+    width: 580px;
+    height: 500px;
+  }
+
+  .about-krug,
+  .about-photo,
+  .about-photo1,
+  .about-berry,
+  .about-leaf {
+    position: absolute;
+    height: auto;
+  }
+  .about-krug {
+    top: 55px;
+    left: 50%;
+    width: 621px;
+  }
+
+  .about-photo {
+    width: 525px;
+    top: -190px;
+    left: 53%;
+  }
+  .about-photo1 {
+    width: 624px;
+    top: 52px;
+    left: 49%;
+  }
+
+  .about-berry {
+    top: 120px;
+  }
+
+  .about-leaf {
+    top: 150px;
+    right: 30px;
+  }
+
+  .about-name {
+    position: absolute;
+    bottom: -48px;
+    left: -12%;
+    transform: translateX(-50%);
+    z-index: 4;
+  }
+
+  .about-name-title {
+    font-size: 24px;
+    padding: 15px 25px;
+  }
+
+  .about-name-subtitle {
+    font-size: 18px;
+    padding: 15px 25px;
+  }
 }

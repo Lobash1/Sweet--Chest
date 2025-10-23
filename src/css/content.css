@@ -36,6 +36,7 @@
   border-radius: 10px 10px 0 0;
   width: 380px;
   height: 245px;
+  max-width: 100%;
 }
 .block {
   padding: 44px 50px;
