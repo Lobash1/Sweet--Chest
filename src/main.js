@@ -7,3 +7,5 @@
 // import './css/content.css';
 // import './css/about.css';
 // import './css/service.css';
+
+import './js/reviews.js';

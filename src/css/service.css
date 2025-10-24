@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 60px 20px;
+  /* padding: 60px 20px; */
   overflow: hidden;
 }
 .service-wrapper {

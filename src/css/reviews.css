@@ -1,0 +1,56 @@
+.reviews {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* padding: 60px 20px; */
+  overflow: hidden;
+}
+
+.reviews-title {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  text-align: center;
+  color: var(--white);
+}
+.swiper {
+}
+.reviews-swiper {
+}
+.swiper-wrapper {
+}
+.reviews-nav {
+}
+.swiper-button-prev {
+}
+.swiper-pagination {
+}
+.swiper-button-next {
+}
+.smoke-bottom {
+}
+
+.decor {
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1;
+}
+.smoke-top,
+.smoke-bottom {
+  width: 250%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+}
+
+.smoke-top {
+  top: 0;
+}
+.smoke-bottom {
+  bottom: 0;
+}

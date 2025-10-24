@@ -19,10 +19,3 @@ body {
 .hero-wrapper {
   background: url('../img//hero/bg.png') center/cover no-repeat;
 }
-
-/* main {
-  flex-grow: 1;
-}
-main:has(.back-link) {
-  text-align: center;
-} */
