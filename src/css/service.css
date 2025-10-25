@@ -112,7 +112,7 @@
     transform: perspective(900px) rotateY(-12deg) translateY(20px);
     width: 50%;
     max-width: 670px;
-    margin-bottom: 0;
+    margin-bottom: 25px;
   }
 
   .service-texts {

@@ -17,23 +17,35 @@
   text-align: center;
   color: var(--white);
 }
+
 .swiper {
 }
 .reviews-swiper {
 }
 .swiper-wrapper {
-}
-.reviews-nav {
-}
-.swiper-button-prev {
-}
-.swiper-pagination {
-}
-.swiper-button-next {
-}
-.smoke-bottom {
+  width: 100%;
 }
 
+.swiper-slide {
+}
+.review-card {
+}
+.review-quote {
+}
+.mark {
+}
+.review-text {
+}
+.review-link {
+}
+.review-avatar {
+}
+.name {
+}
+.city {
+}
+
+/* ====================decor============= */
 .decor {
   position: absolute;
   pointer-events: none;
