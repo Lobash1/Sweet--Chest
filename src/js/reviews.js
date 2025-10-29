@@ -8,101 +8,186 @@ import '../css/reviews.css';
 import img1 from '../img/reviews/img1.png';
 import img2 from '../img/reviews/3camila3.jpg';
 import img3 from '../img/reviews/4daniel.jpg';
+import img4 from '../img/reviews/2tom2.jpg';
+import img5 from '../img/reviews/1mark1.jpg';
 
 const reviews = [
   {
     id: 1,
-    title: '«The result absolutely delighted me — friends were thrilled»',
-    text: '«I ordered cupcakes as a New Years gift. The process was easy and pleasant, and the result was amazing. Packaging and flavor were perfect. I will definitely reorder! I ordered cupcakes as a New Years gift. The process was easy and pleasant, and the result was amazing. Packaging and flavor were perfect. I will definitely reorder!»',
+    title: '«The result was super - my friends were thrilled»',
+    text: '«I ordered cupcakes as a New Year gift for my colleagues. The entire process was surprisingly smooth — from choosing the box to customizing the flavors. When the delivery arrived, the packaging looked so premium that everyone thought it was from a luxury boutique. The cupcakes were incredibly moist and flavorful, not overly sweet, with natural ingredients. My friends were amazed and kept asking where I ordered them. I will definitely return for more celebrations and recommend this bakery to everyone who values quality and aesthetics!»',
     avatar: img1,
     name: 'Irina Larionova',
-    city: 'Saint Petersburg',
+    city: 'Kyiv',
   },
   {
     id: 2,
     title: '«Delicious and beautifully decorated!»',
-    text: '«Ordered for a birthday party. Everyone loved them — beautiful decorations and great taste. Fast delivery and very attentive service.»',
+    text: '«I ordered cupcakes for my daughter’s birthday in Dnipro. The decorations were stunning — very delicate, with fresh berries and edible gold. The taste exceeded all expectations: light cream, perfect sponge, and not a single artificial flavor. Delivery was on time, the manager helped choose the best assortment for kids and adults. Every guest asked if the cupcakes were homemade because they looked so personal and stylish. This bakery made our celebration truly special!»',
     avatar: img2,
     name: 'Anna Demidova',
     city: 'Dnipro',
   },
   {
     id: 3,
-    title: '«Perfect for gifting — thank you!»',
-    text: '«I gave cupcakes as a gift and they made a great impression. Packaging was gorgeous, and flavors were delicate and lovely.»',
+    title: '«Perfect gift — exceeded expectations!»',
+    text: '«I ordered a gift box of cupcakes for my friends in Lviv as a surprise. They were delivered early in the morning, beautifully packed with a personalized card. When we opened the box, the aroma alone made us smile. Each cupcake tasted like it was baked individually for us — fresh cream, berries, delicate chocolate. The combination of flavors was sophisticated yet cozy. It truly felt like a luxury dessert experience. Thank you for creating emotions, not just sweets!»',
     avatar: img3,
     name: 'Oleg Petrov',
-    city: 'Kyiv',
+    city: 'Lviv',
+  },
+  {
+    id: 4,
+    title: '«Absolutely unforgettable taste!»',
+    text: '«We ordered cupcakes for a corporate event in Kharkiv. Honestly, I didn’t expect such a wow-effect: every piece was a small piece of art. The staff said these were the best desserts they had ever tried. The cream was airy, not greasy, the flavors were natural and balanced. The packaging represented our brand colors, which made it even more impressive. These cupcakes were not just dessert — they were the highlight of the event!»',
+    avatar: img4,
+    name: 'Viktor Shevchenko',
+    city: 'Kharkiv',
+  },
+  {
+    id: 5,
+    title: '«Elegant, delicious, and full of love!»',
+    text: '«I wanted something special for my mother’s anniversary in Odesa, so I decided to order cupcakes instead of a traditional cake. It was the best decision ever! The cupcakes looked elegant with gentle floral decor, and each flavor told its own story. My mother was touched to tears. All guests were amazed by the taste — it was not just sweet, it was emotional. Thank you for making our family celebration unforgettable and warm!»',
+    avatar: img5,
+    name: 'Mark Holub',
+    city: 'Odesa',
   },
 ];
 
-// 6) Функция, которая создаёт HTML для каждого отзыва и вставляет его в DOM
 function renderReviews() {
   const wrapper = document.getElementById('reviews-wrapper');
   if (!wrapper) return;
 
   wrapper.innerHTML = reviews
-    .map(r => {
-      return `
-       <div class="swiper-slide">
-      <article class="review-card" aria-label="Customer review by ${r.name}">
-        <div class="review-quote">
-          <div class="mark"><svg width="40" height="28" viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M8.78049 9.99024C13.6083 9.99024 17.522 13.904 17.522 18.7317C17.522 23.5594 13.6083 27.4732 8.78049 27.4732C3.9527 27.4732 0.0390244 23.5594 0.0390244 18.7317L0 17.4829C0 7.82736 7.82736 0 17.4829 0V4.99512C14.1474 4.99512 11.0114 6.29409 8.65272 8.65272C8.19871 9.10681 7.78435 9.58993 7.41058 10.0974C7.85694 10.0272 8.31438 9.99024 8.78049 9.99024ZM31.2585 9.99024C36.0862 9.99024 40 13.904 40 18.7317C40 23.5594 36.0862 27.4732 31.2585 27.4732C26.4308 27.4732 22.5171 23.5594 22.5171 18.7317L22.478 17.4829C22.478 7.82736 30.3053 0 39.961 0V4.99512C36.6255 4.99512 33.4893 6.29409 31.1308 8.65272C30.6767 9.10681 30.2623 9.58993 29.8885 10.0974C30.3349 10.0272 30.7924 9.99024 31.2585 9.99024Z" fill="#5D6AFB" />
-</svg></div>
-          <div class="review-text">
-            <h3>${r.title}</h3>
-            <p>${r.text}</p>
-            <a href="#" class="review-link">
-              Read full review
-            </a>
+    .map(
+      r => `
+      <div class="swiper-slide">
+        <article class="review-card">
+          <div class="review-quote">
+            <div class="mark">
+              <svg width="40" height="28" viewBox="0 0 40 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.78 9.99C13.61 9.99 17.52 13.9 17.52 18.73C17.52 23.56 13.61 27.47 8.78 27.47C3.95 27.47 0.04 23.56 0.04 18.73L0 17.48C0 7.83 7.83 0 17.48 0V4.99C14.15 4.99 11.01 6.29 8.65 8.65C8.2 9.11 7.78 9.59 7.41 10.1C7.86 10.03 8.31 9.99 8.78 9.99ZM31.26 9.99C36.09 9.99 40 13.9 40 18.73C40 23.56 36.09 27.47 31.26 27.47C26.43 27.47 22.52 23.56 22.52 18.73L22.48 17.48C22.48 7.83 30.31 0 39.96 0V4.99C36.63 4.99 33.49 6.29 31.13 8.65C30.68 9.11 30.26 9.59 29.89 10.1C30.33 10.03 30.79 9.99 31.26 9.99Z" fill="#5D6AFB"/>
+              </svg>
+            </div>
+            <div class="review-text">
+              <h3>${r.title}</h3>
+              <p class="review-content">${r.text}</p>
+              <button class="read-more-btn">Read full review</button>
+            </div>
           </div>
-        </div>
-
-        <div class="review-avatar">
-          <img src="${r.avatar}" alt="${r.name}" loading="lazy" />
-          <div>
-          <div class="name">${r.name}</div>
-          <div class="city">${r.city}</div>
+          <div class="review-avatar">
+            <img src="${r.avatar}" alt="${r.name}" loading="lazy"/>
+            <div class="name">${r.name}</div>
+            <div class="city">${r.city}</div>
           </div>
-
-
-
-        </div>
-      </article>
-    </div>
-    `;
-    })
+        </article>
+      </div>`
+    )
     .join('');
 }
 
-// 7) Функция инициализации Swiper с опциями
+// function initReviewsSwiper() {
+//   const swiper = new Swiper('.reviews-swiper', {
+//     modules: [Navigation, Pagination, Autoplay],
+//     loop: true,
+//     slidesPerView: 'auto',
+//     centeredSlides: true,
+//     spaceBetween: 40,
+//     speed: 700,
+//     autoHeight: true,
+//     observer: true,
+//     observeParents: true,
+//     observeSlideChildren: true,
+//     autoplay: {
+//       delay: 8000,
+//       disableOnInteraction: false,
+//     },
+//     navigation: {
+//       nextEl: '.swiper-button-next',
+//       prevEl: '.swiper-button-prev',
+//     },
+//   });
+
+//   console.log('reviews.js loaded');
+
+//   // делегированный обработчик, работающий и для клонов
+//   const container = document.querySelector('.reviews-swiper');
+//   container.addEventListener('click', e => {
+//     console.log('click in swiper captured', e.target);
+
+//     const btn = e.target.closest('.read-more-btn');
+//     console.log('closest .read-more-btn =', btn);
+//     if (!btn) return;
+
+//     const content = btn.previousElementSibling;
+
+//     if (!content) return;
+
+//     content.classList.toggle('expanded');
+//     btn.textContent = content.classList.contains('expanded')
+//       ? 'Hide review'
+//       : 'Read full review';
+
+//     swiper.updateAutoHeight(400);
+//   });
+
+//   return swiper;
+// }
+
 function initReviewsSwiper() {
-  new Swiper('.reviews-swiper', {
+  const swiper = new Swiper('.reviews-swiper', {
     modules: [Navigation, Pagination, Autoplay],
     loop: true,
-    slidesPerView: 1,
+    slidesPerView: 'auto',
     centeredSlides: true,
     spaceBetween: 40,
     speed: 700,
+    autoHeight: true,
+    observer: true,
+    observeParents: true,
+    observeSlideChildren: true,
     autoplay: {
-      delay: 6000,
+      delay: 8000,
       disableOnInteraction: false,
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
     },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    on: {
+      init() {
+        this.params.autoHeight = false;
+        setTimeout(() => {
+          this.params.autoHeight = true;
+          this.updateAutoHeight(400);
+        }, 600);
+      },
+      slideChangeTransitionEnd() {
+        this.updateAutoHeight(300);
+      },
+    },
   });
+
+  const container = document.querySelector('.reviews-swiper');
+  container.addEventListener('click', e => {
+    const btn = e.target.closest('.read-more-btn');
+    if (!btn) return;
+
+    const content = btn.previousElementSibling;
+    if (!content) return;
+
+    content.classList.toggle('expanded');
+    btn.textContent = content.classList.contains('expanded')
+      ? 'Hide review'
+      : 'Read full review';
+
+    swiper.updateAutoHeight(400);
+  });
+
+  return swiper;
 }
 
-// =============== Run on DOM ready ===============
-// 8) Когда DOM готов (вся разметка загружена), вызываем функции: рендер и инициали
 document.addEventListener('DOMContentLoaded', () => {
   renderReviews();
-  initReviewsSwiper();
+  setTimeout(() => initReviewsSwiper(), 200);
 });

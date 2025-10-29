@@ -172,3 +172,44 @@
     font-size: 18px;
   }
 }
+
+/*
+.reviews {
+  min-height: 150vh;
+}
+.reviews-title {
+  font-size: 48px;
+  line-height: 1.25;
+  margin-bottom: 80px;
+}
+.review-card {
+  padding: 70px 143px;
+  flex-direction: row;
+}
+.review-quote .mark svg {
+  width: 40px;
+}
+.review-text h3 {
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+.review-text p {
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+.review-link {
+  font-size: 14px;
+}
+.review-avatar {
+  gap: 30px;
+  max-width: 380px;
+}
+.review-avatar img {
+  width: 380px;
+  height: 380px;
+}
+.reviews-swiper .swiper-button-prev,
+.reviews-swiper .swiper-button-next {
+  bottom: 70px;
+}
+*/
