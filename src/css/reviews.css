@@ -58,11 +58,9 @@
 }
 
 .reviews-swiper {
-  /* width: 100vw; */
   padding: 0 0 170px 0;
   position: relative;
   overflow: hidden;
-  /* padding-bottom: 170px; */
 }
 
 .reviews-swiper::before,
@@ -115,7 +113,6 @@
   padding: 30px 40px;
   max-width: 1180px;
   height: auto;
-  /* box-shadow: 2px 8px 16px 0 rgba(194, 198, 208, 0.06); */
   box-shadow: none;
   background-color: var(--white);
   margin: auto;
@@ -162,12 +159,12 @@
   -webkit-box-orient: vertical;
   line-clamp: none;
   -webkit-line-clamp: 6;
-  max-height: 10.5em; /* высота для 6 строк */
+  max-height: 10.5em;
   transition: all 0.4s ease;
 }
 
 .review-content.expanded {
-  display: block !important; /* ✅ разрешаем контенту раскрыться */
+  display: block !important;
   -webkit-line-clamp: unset !important;
   line-clamp: none;
   max-height: none !important;
@@ -258,7 +255,8 @@
 /* ====== Адаптивность ====== */
 @media only screen and (min-width: 768px) {
   .reviews {
-    min-height: 150vh;
+    padding: 50px 0px;
+    /* min-height: 170vh; */
   }
   .reviews-title {
     font-size: 40px;
@@ -279,6 +277,10 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .reviews {
+    padding: 90px 10px;
+    min-height: 170vh;
+  }
   .reviews-title {
     font-size: 48px;
     line-height: 1.25;
@@ -329,17 +331,17 @@
 /* ===== Выровнять высоту карточек Swiper на мобильных ===== */
 .swiper-slide {
   display: flex;
-  align-items: stretch; /* чтобы карточка тянулась по высоте */
+  align-items: stretch;
 }
 
 .review-card {
-  flex-grow: 1; /* заставляем заполнять всю высоту */
-  height: auto !important; /* пусть подстраивается */
+  flex-grow: 1;
+  height: auto !important;
 }
 
 @media (max-width: 767px) {
   .swiper-slide {
-    width: 90% !important; /* чтобы карточка не ужималась и не обрезалась */
+    width: 90% !important;
     margin: 0 auto;
   }
 
@@ -349,6 +351,6 @@
 
   .reviews-swiper::before,
   .reviews-swiper::after {
-    display: none; /* убираем градиенты, чтобы не обрезали */
+    display: none;
   }
 }

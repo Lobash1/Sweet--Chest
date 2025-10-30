@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  /* padding: 60px 20px; */
+  min-height: 150vh;
+  padding: 60px 20px;
   overflow: hidden;
 }
 .service-wrapper {
@@ -105,6 +105,9 @@
     align-items: flex-end;
     min-height: 700px;
     overflow: visible;
+
+    min-height: 100vh;
+    /* padding: 60px 20px; */
   }
 
   .phone {

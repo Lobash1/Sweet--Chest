@@ -9,3 +9,4 @@
 // import './css/service.css';
 
 import './js/reviews.js';
+import './js/gallery.js';
