@@ -9,6 +9,7 @@
 @import url(./css/about.css);
 @import url(./css/reviews.css);
 @import url(./css//gallery.css);
+@import url(./css/modal.css);
 
 :root {
   --white: #fff;

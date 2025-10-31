@@ -64,3 +64,83 @@
     font-size: 18px;
   }
 }
+/* ====================modal================== */
+/* ===== Modal styles ===== */
+
+.gallery-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.gallery-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery-modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.gallery-modal-img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Overlay (можна клікнути щоб закрити) */
+.gallery-modal-overlay {
+  position: absolute;
+  inset: 0;
+}
+
+/* Кнопка закриття */
+.gallery-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 36px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Стрілки */
+.gallery-modal-prev,
+.gallery-modal-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-modal-prev:hover,
+.gallery-modal-next:hover {
+  opacity: 0.7;
+}
+
+.gallery-modal-prev {
+  left: -60px;
+}
+
+.gallery-modal-next {
+  right: -60px;
+}
