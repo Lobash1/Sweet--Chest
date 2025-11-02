@@ -9,7 +9,8 @@
 @import url(./css/about.css);
 @import url(./css/reviews.css);
 @import url(./css//gallery.css);
-@import url(./css/modal.css);
+@import url(./css/order.css);
+@import url(./css/footer.css);
 
 :root {
   --white: #fff;

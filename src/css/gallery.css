@@ -1,6 +1,6 @@
 .gallery {
-  /* max-width: 1920px; */
   background: var(--white);
+  padding: 0 20px;
 }
 .gallery-wrapper-text {
   display: flex;
@@ -29,13 +29,15 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 9px;
+  gap: 20px;
   flex-wrap: wrap;
 }
+
 .gallery-item {
-  width: 634px;
-  height: 444px;
+  flex: 0 1 calc((100% - 40px) / 1);
+  aspect-ratio: 4 / 3;
 }
+
 .gallery-img {
   width: 100%;
   height: 100%;
@@ -49,10 +51,10 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-@media (max-width: 768px) {
+@media only screen and (min-width: 768px) {
   .gallery-item {
-    width: 100%;
-    height: auto;
+    flex: 0 1 calc((100% - 40px) / 2);
+    aspect-ratio: 4 / 3;
   }
   .gallery-wrapper-text {
     margin-bottom: 40px;
@@ -62,6 +64,13 @@
   }
   .gallery-text {
     font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .gallery-item {
+    flex: 0 1 calc((100% - 40px) / 3);
+    aspect-ratio: 4 / 3;
   }
 }
 /* ====================modal================== */
@@ -87,15 +96,23 @@
 
 .gallery-modal-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .gallery-modal-img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 90vh;
+  min-width: 95vw;
+  object-fit: contain;
   border-radius: 12px;
-  display: block;
+  z-index: 2;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
@@ -123,24 +140,31 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 48px;
+  font-size: 64px;
   color: white;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.3);
   border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 10px;
-  transition: opacity 0.3s ease;
+  transition: background 0.3s ease, opacity 0.3s ease;
+  z-index: 3;
 }
 
 .gallery-modal-prev:hover,
 .gallery-modal-next:hover {
+  background: rgba(0, 0, 0, 0.6);
   opacity: 0.7;
 }
 
 .gallery-modal-prev {
-  left: -60px;
+  left: 40px;
 }
 
 .gallery-modal-next {
-  right: -60px;
+  right: 40px;
 }

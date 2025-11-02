@@ -1,0 +1,77 @@
+.order {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.order-wrapper {
+  padding: 70px 99px;
+  gap: 36px;
+
+  max-width: 1180px;
+  max-height: 394px;
+  background: var(--white);
+  border-radius: 8px;
+}
+
+.order-wrapper-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 12px;
+}
+.order-title {
+}
+.opder-description {
+}
+.order-form {
+}
+.order-label {
+}
+.order-input {
+}
+.order-btn {
+}
+.opder-note {
+}
+
+/* ====================decor============= */
+.decor {
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1;
+}
+.smoke-top {
+  width: 250%;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  top: 0;
+}
+
+.leaff {
+}
+.berryy {
+  top: 300px;
+  right: 100px;
+  width: 152px;
+}
+
+.top-left {
+  width: 126px;
+  height: 131px;
+  left: 100px;
+  top: 150px;
+}
+.top-right {
+}
+.bottom-left {
+}
+.bottom-right {
+}
