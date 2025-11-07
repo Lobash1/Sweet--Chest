@@ -2,90 +2,87 @@
   padding: 10px 0;
 }
 
-/* .header {
-  background: url('../img/hero/bg.png') center/cover no-repeat;
-} */
-
 .nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 16px;
 }
+
 .nav-logo {
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
-.nav-list {
+
+.nav-contacts {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 16px;
 }
+
 .nav-item {
   display: flex;
-  /* flex-direction: row; */
   align-items: center;
-  justify-content: flex-start;
   gap: 8px;
 }
 
-.nav-icon {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: auto;
+.nav-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
 }
-.nav-text {
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 1.52;
+.nav-title {
   color: var(--white);
+  font-size: 10px;
+  line-height: 1.4;
+  text-decoration: none;
+}
+.nav-subtitle {
+  color: var(--white);
+  font-size: 10px;
+  line-height: 1.4;
+  opacity: 0.8;
 }
 
-.nav-adress {
-  font-size: 8px;
-  line-height: 1.5;
-  color: var(--white);
-  /* min-width: 150px; */
+.nav-title[href^='tel:']:hover {
+  color: #fed84c;
+  transition: color 0.3s ease;
 }
 
-span {
-  color: var(--white);
-  font-weight: 400;
-  font-size: 8px;
-  line-height: 1.5;
-}
+/* ---------- TABLET ---------- */
+@media (min-width: 768px) {
+  .nav-contacts {
+    gap: 32px;
+  }
 
-@media only screen and (min-width: 768px) {
-  .nav-text {
+  .nav-title {
+    font-size: 14px;
     font-weight: 500;
-    font-size: 16px;
   }
 
-  span {
-    font-size: 10px;
-  }
-  .nav-list {
-    gap: 39px;
+  .nav-subtitle {
+    font-size: 11px;
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  .nav-text {
-    font-weight: 700;
-    font-size: 20px;
-  }
-  .nav-item {
-    gap: 15px;
+/* ---------- DESKTOP ---------- */
+@media (min-width: 1200px) {
+  .nav-contacts {
+    gap: 64px;
   }
 
-  span {
+  .nav-item {
+    gap: 12px;
+  }
+
+  .nav-title {
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .nav-subtitle {
     font-size: 13px;
-  }
-  .nav-list {
-    gap: 69px;
-  }
-  .nav-adress {
-    font-size: 12px;
   }
 }

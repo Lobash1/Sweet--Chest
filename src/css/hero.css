@@ -32,7 +32,7 @@
     url('/img/hero/berry3.png') right 300px bottom 10% / 160px no-repeat;
   z-index: 3;
   pointer-events: none;
-  animation: float 10s ease-in-out infinite;
+  animation: float 12s ease-in-out infinite alternate;
 }
 
 .hero-leaf {
@@ -61,19 +61,87 @@
   color: var(--black);
   text-transform: uppercase;
 }
+
 .hero-title {
+  display: inline-block;
   font-size: 22px;
   line-height: 1.25;
   letter-spacing: -0.02em;
   color: var(--white);
   margin-bottom: 24px;
+  overflow: hidden;
+  position: relative;
 }
+
+.hero-title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(12, 19, 38, 0.9) 0%,
+    rgba(12, 19, 38, 0.4) 100%
+  );
+  animation: reveal 4s steps(30, end) forwards;
+}
+
+@keyframes reveal {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* Мигаючий курсор */
+.hero-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 2px;
+  /* background: #fed84c; */
+  background: #081130;
+  animation: blink 0.7s infinite, moveCursor 4s steps(30, end) forwards;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes moveCursor {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
 .hero-text {
   font-size: 14px;
   line-height: 1.43;
-  color: var(--white);
   margin-bottom: 40px;
 }
+
+.hero-title,
+.hero-text {
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .text-btn {
   display: flex;
   flex-direction: row;
@@ -173,5 +241,15 @@
   100% {
     transform: translateY(-20px);
     opacity: 0.5;
+  }
+}
+
+.text {
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
+}
+@keyframes fadeIn {
+  to {
+    opacity: 1;
   }
 }
