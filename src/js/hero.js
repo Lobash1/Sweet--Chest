@@ -10,7 +10,7 @@ Freshly baked and packed with care.`;
     if (i < text.length) {
       title.textContent += text.charAt(i);
       i++;
-      setTimeout(type, 40); // швидкість набору
+      setTimeout(type, 40);
     }
   }
 

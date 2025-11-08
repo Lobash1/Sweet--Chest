@@ -10,7 +10,7 @@
             Delicate cream of any color of your choice, waffle base
           </p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
       <li class="item">
@@ -19,7 +19,7 @@
           <h3 class="name">Raspberry</h3>
           <p class="description">Airy cream, dark base and raspberry</p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
       <li class="item">
@@ -28,7 +28,7 @@
           <h3 class="name">Fireworks</h3>
           <p class="description">Multi-colored cream with a biscuit base</p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
       <li class="item">
@@ -39,7 +39,7 @@
             Nut shavings, delicate cream and chocolate base
           </p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
       <li class="item">
@@ -50,7 +50,7 @@
             Delicate cream of any color of your choice, waffle base
           </p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
       <li class="item">
@@ -59,7 +59,7 @@
           <h3 class="name">Summer Fantasy</h3>
           <p class="description">Heart-shaped jewelry for a loved one</p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
       <li class="item">
@@ -68,7 +68,7 @@
           <h3 class="name">Cape of Madness</h3>
           <p class="description">Multicolored base, shavings, and cream</p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
       <li class="item">
@@ -79,7 +79,7 @@
             Light base, delicate cream with shavings on top
           </p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
       <li class="item">
@@ -90,9 +90,46 @@
             Dark base, delicate cream, and delicious balls
           </p>
           <p class="price">15 $/piece</p>
-          <button class="btn">Order</button>
+          <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
     </ul>
+    <div class="modal" id="order-modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Close modal">&times;</button>
+        <h3 class="modal-title">Place your order</h3>
+        <p class="modal-text">
+          Enter your phone number and we’ll call you back in 15 minutes to
+          confirm your order <span id="modal-product-name"></span>.
+        </p>
+
+        <form id="modal-form">
+          <label class="modal-label">
+            <svg
+              class="modal-icon"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="#7e868e"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.48 2.53.74 3.88.74a1 1 0 011 1v3.5a1 1 0 01-1 1C10.07 22.91 1.09 13.93 1 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.35.26 2.67.74 3.88a1 1 0 01-.21 1.11l-2.2 2.2z"
+              />
+            </svg>
+            <input
+              class="modal-input"
+              type="tel"
+              name="phone"
+              placeholder="+38 0XX XXX XXXX"
+              required
+            />
+          </label>
+
+          <button type="submit" class="modal-btn">Confirm</button>
+        </form>
+      </div>
+    </div>
   </div>
 </section>
