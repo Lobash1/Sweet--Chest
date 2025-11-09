@@ -1,18 +1,20 @@
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-// order.js
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('.order-form');
-  const input = document.querySelector('.order-input');
-  const checkbox = document.querySelector('.order-checkbox');
+  if (!form) {
+    console.warn('❌ Форма .order-form не найдена');
+    return;
+  }
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const phone = input.value.trim();
+    const phoneInput = form.querySelector('input[name="phone"]');
+    const phone = phoneInput?.value.trim();
+    const checkbox = document.querySelector('.order-checkbox');
 
-    // Перевірка: чи заповнено поле
     if (!phone) {
       iziToast.error({
         title: 'Error',
@@ -22,8 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Перевірка формату номера (проста валідація)
-    const phoneRegex = /^\+?\d{10,15}$/;
+    const phoneRegex = /^\+?\d[\d\s\-\(\)]{8,}$/;
     if (!phoneRegex.test(phone)) {
       iziToast.warning({
         title: 'Invalid number',
@@ -33,24 +34,46 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Перевірка чекбокса
-    if (!checkbox.checked) {
+    // ✅ Обязательное согласие с чекбоксом
+    if (!checkbox || !checkbox.checked) {
       iziToast.warning({
         title: 'Consent required',
-        message: 'Please agree to personal data processing.',
+        message: 'Please agree to personal data processing before sending.',
         position: 'topRight',
       });
       return;
     }
 
-    // Успішна відправка (імітація)
-    iziToast.success({
-      title: 'Success',
-      message: 'Your order request has been sent! We’ll call you back soon 💛',
-      position: 'topRight',
-    });
+    // === Отправка на сервер ===
+    try {
+      const response = await fetch('http://localhost:3000/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone }),
+      });
 
-    // Очистити форму
-    form.reset();
+      const data = await response.json();
+
+      if (!response.ok || !data.success || !data.telegram?.ok) {
+        console.error('❌ Ошибка Telegram:', data);
+        throw new Error('Telegram error');
+      }
+
+      iziToast.success({
+        title: 'Success',
+        message: 'Your order has been sent! We’ll call you back soon 💛',
+        position: 'topRight',
+      });
+
+      form.reset();
+      checkbox.checked = false;
+    } catch (err) {
+      iziToast.error({
+        title: 'Error',
+        message: 'Failed to send message. Try again later 💔',
+        position: 'topRight',
+      });
+      console.error('Ошибка запроса:', err);
+    }
   });
 });
