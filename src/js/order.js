@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // === Отправка на сервер ===
     try {
-      const response = await fetch('http://localhost:3000/send', {
+      const response = await fetch('https://sweet-chest.onrender.com/send', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ phone }),
