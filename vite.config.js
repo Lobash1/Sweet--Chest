@@ -11,7 +11,7 @@ export default defineConfig(({ command, mode }) => {
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
-    base: '/Sweet--Chest/',
+    base: './',
     root: 'src',
     publicDir: '../static',
     build: {

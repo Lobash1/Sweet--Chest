@@ -4,17 +4,16 @@ import cors from 'cors';
 import 'dotenv/config';
 
 const app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      'https://lobash1.github.io',
+      'https://lobash1.github.io/Sweet--Chest',
+      'https://sweet-chest.vercel.app',
+    ],
+  })
+);
 app.use(express.json());
-
-// app.use((req, res, next) => {
-//   res.header('Access-Control-Allow-Origin', '*');
-//   res.header(
-//     'Access-Control-Allow-Headers',
-//     'Origin, X-Requested-With, Content-Type, Accept'
-//   );
-//   next();
-// });
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const CHAT_ID = process.env.CHAT_ID;
@@ -25,38 +24,63 @@ if (!BOT_TOKEN || !CHAT_ID) {
 }
 
 app.post('/send', async (req, res) => {
-  const { phone } = req.body;
-
-  if (!phone) return res.status(400).json({ error: 'Phone is required' });
-
-  const message = `🍰 *New Sweet Chest Order!*
-📞 Phone: _${phone}_
-🕐 Time: ${new Date().toLocaleString('uk-UA')}`;
-
   try {
-    const response = await fetch(
-      `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: message,
-          parse_mode: 'Markdown',
-        }),
-      }
-    );
+    const { phone, product, image } = req.body;
 
-    const data = await response.json();
+    const caption = `
+🎀 <b>New Sweet Chest Order!</b>
 
-    if (!data.ok) {
-      throw new Error(data.description || 'Telegram API error');
+🧁 <b>Dessert:</b> ${product || 'Not specified'}
+👩‍💻 <b>Phone:</b> <a href="tel:${phone}">${phone}</a>
+🕐 <b>Received:</b> ${new Date().toLocaleString('uk-UA')}
+
+🍬 <i>Sweet Chest – handmade desserts with love!</i>
+    `;
+
+    let telegramResponse;
+
+    if (image) {
+      const resp = await fetch(
+        `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendPhoto`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: process.env.CHAT_ID,
+            photo: image,
+            caption,
+            parse_mode: 'HTML',
+          }),
+        }
+      );
+      telegramResponse = await resp.json();
+    } else {
+      const resp = await fetch(
+        `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: process.env.CHAT_ID,
+            text: caption,
+            parse_mode: 'HTML',
+          }),
+        }
+      );
+      telegramResponse = await resp.json();
     }
 
-    res.json({ success: true, telegram: data });
-  } catch (err) {
-    console.error('❌ Ошибка отправки:', err);
-    res.status(500).json({ error: err.message });
+    console.log('📤 Ответ Telegram:', telegramResponse);
+
+    if (!telegramResponse.ok) {
+      throw new Error(telegramResponse.description || 'Telegram API error');
+    }
+
+    // ✅ возвращаем success на фронт
+    res.json({ success: true, telegram: telegramResponse });
+  } catch (error) {
+    console.error('❌ Ошибка отправки:', error);
+    res.status(500).json({ success: false, message: error.message });
   }
 });
 
