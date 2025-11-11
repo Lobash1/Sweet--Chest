@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="./index.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/vendor-D2JjN0B0.js">
     <link rel="stylesheet" crossorigin href="./assets/vendor-BdldKz45.css">
-    <link rel="stylesheet" crossorigin href="./assets/index-DhLjUJr_.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-DkBWb99A.css">
   </head>
   <body>
     <main>
@@ -251,6 +251,43 @@
   <img src="./assets/leaf-Bl5-D59y.png" alt="" class="decor leaf" />
   <img src="./assets/berry-soWmpnbP.png" alt="" class="decor berry" />
   <img src="./assets/02%201-21euxX-a.png" alt="" class="decor smoke-bottom" />
+
+  <!-- === Upload Modal (Compact) === -->
+  <div class="modal" id="upload-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content small-modal">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+
+      <h3 class="modal-title">Upload a photo</h3>
+
+      <form class="modal-form" id="upload-form">
+        <label class="upload-field">
+          <input
+            class="file-input"
+            type="file"
+            name="photo"
+            accept="image/*"
+            required
+          />
+          <span class="file-label">📸 Choose a file</span>
+        </label>
+
+        <div class="preview" id="photo-preview">
+          <p class="preview-placeholder">No photo selected</p>
+        </div>
+
+        <input
+          class="modal-input"
+          type="tel"
+          name="phone"
+          placeholder="+38 0XX XXX XXXX"
+          required
+        />
+
+        <button type="submit" class="modal-btn">Send</button>
+      </form>
+    </div>
+  </div>
 </section>
 
       <section class="about">
