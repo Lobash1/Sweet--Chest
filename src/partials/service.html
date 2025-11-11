@@ -17,4 +17,41 @@
   <img src="/img/leaf.png" alt="" class="decor leaf" />
   <img src="/img/berry.png" alt="" class="decor berry" />
   <img src="/img/02 1.png" alt="" class="decor smoke-bottom" />
+
+  <!-- === Upload Modal (Compact) === -->
+  <div class="modal" id="upload-modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content small-modal">
+      <button class="modal-close" aria-label="Close modal">&times;</button>
+
+      <h3 class="modal-title">Upload a photo</h3>
+
+      <form class="modal-form" id="upload-form">
+        <label class="upload-field">
+          <input
+            class="file-input"
+            type="file"
+            name="photo"
+            accept="image/*"
+            required
+          />
+          <span class="file-label">📸 Choose a file</span>
+        </label>
+
+        <div class="preview" id="photo-preview">
+          <p class="preview-placeholder">No photo selected</p>
+        </div>
+
+        <input
+          class="modal-input"
+          type="tel"
+          name="phone"
+          placeholder="+38 0XX XXX XXXX"
+          required
+        />
+
+        <button type="submit" class="modal-btn">Send</button>
+      </form>
+    </div>
+  </div>
 </section>
