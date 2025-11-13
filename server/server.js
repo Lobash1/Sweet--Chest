@@ -24,6 +24,7 @@ if (!BOT_TOKEN || !CHAT_ID) {
   console.error('❌ BOT_TOKEN или CHAT_ID не заданы в .env');
 }
 
+// === Отправка заказа из каталога ===
 app.post('/send', async (req, res) => {
   try {
     const { phone, product, image } = req.body;
@@ -41,13 +42,14 @@ app.post('/send', async (req, res) => {
     let telegramResponse;
 
     if (image) {
+      // Если есть изображение — отправляем его как фото
       const resp = await fetch(
-        `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendPhoto`,
+        `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            chat_id: process.env.CHAT_ID,
+            chat_id: CHAT_ID,
             photo: image,
             caption,
             parse_mode: 'HTML',
@@ -56,13 +58,14 @@ app.post('/send', async (req, res) => {
       );
       telegramResponse = await resp.json();
     } else {
+      // Если фото нет — просто сообщение
       const resp = await fetch(
-        `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
+        `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            chat_id: process.env.CHAT_ID,
+            chat_id: CHAT_ID,
             text: caption,
             parse_mode: 'HTML',
           }),
@@ -77,7 +80,6 @@ app.post('/send', async (req, res) => {
       throw new Error(telegramResponse.description || 'Telegram API error');
     }
 
-    // ✅ возвращаем success на фронт
     res.json({ success: true, telegram: telegramResponse });
   } catch (error) {
     console.error('❌ Ошибка отправки:', error);
@@ -85,6 +87,7 @@ app.post('/send', async (req, res) => {
   }
 });
 
+// === Отправка фото-заявки из модалки ===
 app.post('/upload', async (req, res) => {
   try {
     const { phone, image } = req.body;
@@ -95,7 +98,7 @@ app.post('/upload', async (req, res) => {
         .json({ success: false, message: 'Phone and image are required' });
     }
 
-    // 🔍 Декодируем base64
+    // 🔍 Декодируем base64 в бинарные данные
     const base64Data = image.split(';base64,').pop();
     const buffer = Buffer.from(base64Data, 'base64');
 
@@ -108,9 +111,9 @@ app.post('/upload', async (req, res) => {
 🍰 <i>Photo attached below for review.</i>
     `;
 
-    // 📦 Создаём форму для Telegram (чтобы передать фото как файл)
+    // 📦 Формируем тело запроса с файлом
     const formData = new FormData();
-    formData.append('chat_id', process.env.CHAT_ID);
+    formData.append('chat_id', CHAT_ID);
     formData.append('caption', caption);
     formData.append('parse_mode', 'HTML');
     formData.append('photo', buffer, {
@@ -120,7 +123,7 @@ app.post('/upload', async (req, res) => {
 
     // 🚀 Отправляем в Telegram
     const response = await fetch(
-      `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendPhoto`,
+      `https://api.telegram.org/bot${BOT_TOKEN}/sendPhoto`,
       {
         method: 'POST',
         body: formData,
@@ -139,4 +142,4 @@ app.post('/upload', async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
