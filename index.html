@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="./index.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/vendor-D2JjN0B0.js">
     <link rel="stylesheet" crossorigin href="./assets/vendor-BdldKz45.css">
-    <link rel="stylesheet" crossorigin href="./assets/index-DkBWb99A.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-OB8k_2Uz.css">
   </head>
   <body>
     <main>
@@ -116,7 +116,7 @@
         <div class="block">
           <h3 class="name">Raspberry</h3>
           <p class="description">Airy cream, dark base and raspberry</p>
-          <p class="price">15 $/piece</p>
+          <p class="price">10 $/piece</p>
           <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
@@ -125,7 +125,7 @@
         <div class="block">
           <h3 class="name">Fireworks</h3>
           <p class="description">Multi-colored cream with a biscuit base</p>
-          <p class="price">15 $/piece</p>
+          <p class="price">8 $/piece</p>
           <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
@@ -136,7 +136,7 @@
           <p class="description">
             Nut shavings, delicate cream and chocolate base
           </p>
-          <p class="price">15 $/piece</p>
+          <p class="price">17 $/piece</p>
           <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
@@ -147,7 +147,7 @@
           <p class="description">
             Delicate cream of any color of your choice, waffle base
           </p>
-          <p class="price">15 $/piece</p>
+          <p class="price">12 $/piece</p>
           <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
@@ -156,7 +156,7 @@
         <div class="block">
           <h3 class="name">Summer Fantasy</h3>
           <p class="description">Heart-shaped jewelry for a loved one</p>
-          <p class="price">15 $/piece</p>
+          <p class="price">8 $/piece</p>
           <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
@@ -165,7 +165,7 @@
         <div class="block">
           <h3 class="name">Cape of Madness</h3>
           <p class="description">Multicolored base, shavings, and cream</p>
-          <p class="price">15 $/piece</p>
+          <p class="price">5 $/piece</p>
           <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
@@ -176,7 +176,7 @@
           <p class="description">
             Light base, delicate cream with shavings on top
           </p>
-          <p class="price">15 $/piece</p>
+          <p class="price">11 $/piece</p>
           <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
@@ -187,7 +187,7 @@
           <p class="description">
             Dark base, delicate cream, and delicious balls
           </p>
-          <p class="price">15 $/piece</p>
+          <p class="price">9 $/piece</p>
           <button aria-label="Order Cream Castle" class="btn">Order</button>
         </div>
       </li>
@@ -217,7 +217,7 @@
               />
             </svg>
             <input
-              class="modal-input"
+              class="modal-input-content"
               type="tel"
               name="phone"
               placeholder="+38 0XX XXX XXXX"
@@ -364,6 +364,44 @@
     </div>
   </div>
 </section>
+
+<!-- Modal Ask Julia -->
+<div class="modal" id="julia-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <h3 class="modal-title">Ask Julia a question 💬</h3>
+    <p class="modal-text">
+      Write your question and phone number — Julia will contact you personally
+      to help and consult 💛
+    </p>
+
+    <form class="modal-form" id="julia-form">
+      <label class="modal-label-about">
+        <span class="modal-label-text">Your question</span>
+        <textarea
+          class="modal-input modal-textarea"
+          name="question"
+          placeholder="Write your question here..."
+          rows="4"
+          required
+        ></textarea>
+      </label>
+
+      <label class="modal-label">
+        <input
+          class="modal-input-content"
+          type="tel"
+          name="phone"
+          placeholder="+38 0XX XXX XXXX"
+          required
+        />
+      </label>
+
+      <button type="submit" class="modal-btn">Send question</button>
+    </form>
+  </div>
+</div>
 
       <section class="reviews">
   <img src="./assets/01%201-BB18uNUi.png" alt="decor" class="decor smoke-top" />
