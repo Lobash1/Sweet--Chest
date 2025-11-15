@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const text = `Cakes and cupcakes from 65 UAH per piece
+  const text = `Cakes and cupcakes from 5 $ per piece
 with delivery to the Kamianske region.
 Freshly baked and packed with care.`;
 

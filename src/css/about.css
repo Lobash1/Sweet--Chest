@@ -119,6 +119,44 @@
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 }
 
+.modal-textarea {
+  resize: none;
+  height: 100px;
+  width: 78%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 15px 45px;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.4;
+  background: #f2f6fa;
+  transition: border-color 0.3s ease;
+}
+
+.modal-textarea:focus {
+  border-color: #fed84c;
+  outline: none;
+}
+
+.modal-label-text {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #555;
+}
+
+.modal-label-about {
+  padding: 0 16px 0 46px;
+  /* position: relative;
+  display: flex;
+  align-items: center;
+  background: #f2f6fa;
+  border-radius: 8px;
+  padding: 0 16px 0 46px;
+  margin-bottom: 20px;
+  height: 64px; */
+}
+
 /* ========== TABLET (min-width: 768px) ========== */
 @media only screen and (min-width: 768px) {
   .about {

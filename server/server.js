@@ -128,13 +128,17 @@ app.post('/upload', async (req, res) => {
     const buffer = Buffer.from(base64Data, 'base64');
 
     const caption = `
-🎨 <b>Custom Sweet Chest Order</b>
+━━━━━━━━━━━━━━━━━━━━━━━
+<b>🎀 Sweet Chest Order</b>
+━━━━━━━━━━━━━━━━━━━━━━━
 
+🧁 <b>Dessert:</b> ${product || 'Custom request'}
 📞 <b>Phone:</b> <a href="tel:${phone}">${phone}</a>
 🕐 <b>Received:</b> ${new Date().toLocaleString('uk-UA')}
 
-🍰 <i>Photo attached below for review.</i>
-    `;
+🍬 <i>Handmade desserts with love 💛</i>
+━━━━━━━━━━━━━━━━━━━━━━━
+`;
 
     // создаем форму для отправки фото
     const formData = new FormData();
@@ -162,6 +166,44 @@ app.post('/upload', async (req, res) => {
     res.json({ success: true });
   } catch (error) {
     console.error('❌ Upload error:', error);
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
+app.post('/ask', async (req, res) => {
+  try {
+    const { question, phone } = req.body;
+
+    const caption = `
+━━━━━━━━━━━━━━━━━━━
+💌 <b>New question for Julia</b>
+━━━━━━━━━━━━━━━━━━━
+📞 <b>Phone:</b> <a href="tel:${phone}">${phone}</a>
+💬 <b>Question:</b> ${question}
+🕐 ${new Date().toLocaleString('uk-UA')}
+━━━━━━━━━━━━━━━━━━━
+<i>Sweet Chest – handmade desserts with love 💛</i>
+`;
+
+    const telegramResponse = await fetch(
+      `https://api.telegram.org/bot${process.env.BOT_TOKEN}/sendMessage`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: process.env.CHAT_ID,
+          text: caption,
+          parse_mode: 'HTML',
+        }),
+      }
+    );
+
+    const data = await telegramResponse.json();
+    if (!data.ok) throw new Error(data.description || 'Telegram API error');
+
+    res.json({ success: true });
+  } catch (error) {
+    console.error('❌ /ask error:', error);
     res.status(500).json({ success: false, message: error.message });
   }
 });

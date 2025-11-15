@@ -72,3 +72,41 @@
     </div>
   </div>
 </section>
+
+<!-- Modal Ask Julia -->
+<div class="modal" id="julia-modal">
+  <div class="modal-overlay"></div>
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Close modal">&times;</button>
+    <h3 class="modal-title">Ask Julia a question 💬</h3>
+    <p class="modal-text">
+      Write your question and phone number — Julia will contact you personally
+      to help and consult 💛
+    </p>
+
+    <form class="modal-form" id="julia-form">
+      <label class="modal-label-about">
+        <span class="modal-label-text">Your question</span>
+        <textarea
+          class="modal-input modal-textarea"
+          name="question"
+          placeholder="Write your question here..."
+          rows="4"
+          required
+        ></textarea>
+      </label>
+
+      <label class="modal-label">
+        <input
+          class="modal-input-content"
+          type="tel"
+          name="phone"
+          placeholder="+38 0XX XXX XXXX"
+          required
+        />
+      </label>
+
+      <button type="submit" class="modal-btn">Send question</button>
+    </form>
+  </div>
+</div>
