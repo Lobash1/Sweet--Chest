@@ -19,3 +19,29 @@
   --link: #4a94ff;
   --darc-bg: #081130;
 }
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.decor {
+  overflow: hidden;
+  max-width: 100%;
+}
+
+section {
+  position: relative;
+  overflow-x: clip;
+}
