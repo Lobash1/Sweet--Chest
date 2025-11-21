@@ -168,3 +168,39 @@
 .gallery-modal-next {
   right: 40px;
 }
+
+/* 📱 MOBILE FIX — модалка для галереи */
+@media (max-width: 767px) {
+  .gallery-modal-img {
+    height: auto;
+    max-height: 80vh; /* ✨ не растягиваем */
+    max-width: 95vw;
+    border-radius: 10px;
+  }
+
+  /* 🔘 Меньше стрелки + более яркие */
+  .gallery-modal-prev,
+  .gallery-modal-next {
+    width: 45px;
+    height: 45px;
+    font-size: 36px;
+    background: rgba(0, 0, 0, 0.55); /* ✨ больше контраста */
+  }
+
+  .gallery-modal-prev {
+    left: 10px;
+  }
+
+  .gallery-modal-next {
+    right: 10px;
+  }
+
+  /* ❌ кнопка закрытия — меньше и видимее */
+  .gallery-modal-close {
+    font-size: 28px;
+    top: 6px;
+    right: 10px;
+    color: #fff;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.7);
+  }
+}

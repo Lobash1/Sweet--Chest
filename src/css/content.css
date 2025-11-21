@@ -155,10 +155,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  /* background: #f2f6fa; */
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 0 16px 0 46px;
   margin-bottom: 10px;
   height: 50px;
 }
