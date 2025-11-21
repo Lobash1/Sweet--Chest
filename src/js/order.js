@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = form.querySelector('input[name="phone"]');
     const phone = phoneInput?.value.trim();
     const checkbox = document.querySelector('.order-checkbox');
+    const product = form.dataset.product || null; // ⭐ добавлено
 
     if (!phone) {
       iziToast.error({
@@ -34,27 +35,30 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // ✅ Обязательное согласие с чекбоксом
     if (!checkbox || !checkbox.checked) {
       iziToast.warning({
         title: 'Consent required',
-        message: 'Please agree to personal data processing before sending.',
+        message: 'Please agree to personal data processing.',
         position: 'topRight',
       });
       return;
     }
 
-    // === Отправка на сервер ===
+    // === СЕРВЕР ДЛЯ ЗАКАЗОВ ===
+    const API_URL = window.location.origin.includes('localhost')
+      ? 'http://localhost:3000/send'
+      : 'https://sweet-chest.onrender.com/send';
+
     try {
-      const response = await fetch('https://sweet-chest.onrender.com/', {
+      const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone }),
+        body: JSON.stringify({ phone, product }), // ⭐ добавлено
       });
 
       const data = await response.json();
 
-      if (!response.ok || !data.success || !data.telegram?.ok) {
+      if (!response.ok || !data.success) {
         console.error('❌ Ошибка Telegram:', data);
         throw new Error('Telegram error');
       }

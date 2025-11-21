@@ -10,7 +10,14 @@ const preview = document.getElementById('photo-preview');
 const form = document.getElementById('upload-form');
 
 let uploadedImage = null;
+let isSending = false;
 
+// ---- URL для локалки и продакшена ---- //
+const API_URL = window.location.origin.includes('localhost')
+  ? 'http://localhost:3000/upload'
+  : 'https://sweet-chest.onrender.com/upload';
+
+// ---- Модалка ---- //
 const openModal = () => {
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -22,30 +29,36 @@ const closeModal = () => {
   preview.innerHTML = '<p class="preview-placeholder">No photo selected</p>';
   uploadedImage = null;
   form.reset();
+  isSending = false;
 };
 
-// открытие/закрытие
-uploadBtn.addEventListener('click', openModal);
-overlay.addEventListener('click', closeModal);
-closeBtn.addEventListener('click', closeModal);
+// ---- Открытие/Закрытие ---- //
+uploadBtn?.addEventListener('click', openModal);
+overlay?.addEventListener('click', closeModal);
+closeBtn?.addEventListener('click', closeModal);
 
-// выбор файла
+// ---- Выбор файла ---- //
 fileInput.addEventListener('change', e => {
   const file = e.target.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = e => {
-      uploadedImage = e.target.result;
-      preview.innerHTML = `<img src="${uploadedImage}" alt="Preview" />`;
-    };
-    reader.readAsDataURL(file);
-  }
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = e => {
+    uploadedImage = e.target.result;
+    preview.innerHTML = `<img src="${uploadedImage}" class="preview-img" alt="Preview" />`;
+  };
+  reader.readAsDataURL(file);
 });
 
-// отправка
+// ---- Отправка ---- //
 form.addEventListener('submit', async e => {
   e.preventDefault();
+
+  if (isSending) return; // 🚫 защита от двойного клика
+  isSending = true;
+
   const phone = form.elements.phone.value.trim();
+  const phoneRegex = /^\+?\d[\d\s\-\(\)]{8,}$/;
 
   if (!uploadedImage) {
     iziToast.warning({
@@ -53,11 +66,22 @@ form.addEventListener('submit', async e => {
       message: 'Please upload a photo first 📸',
       position: 'topRight',
     });
+    isSending = false;
+    return;
+  }
+
+  if (!phone || !phoneRegex.test(phone)) {
+    iziToast.warning({
+      title: 'Invalid number',
+      message: 'Enter a valid phone number ☎',
+      position: 'topRight',
+    });
+    isSending = false;
     return;
   }
 
   try {
-    const response = await fetch('https://sweet-chest.onrender.com/upload', {
+    const response = await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ phone, image: uploadedImage }),
@@ -65,19 +89,22 @@ form.addEventListener('submit', async e => {
 
     const data = await response.json();
 
-    if (!response.ok || !data.success) throw new Error();
+    if (!response.ok || !data.success) throw new Error('Send error');
 
     iziToast.success({
       title: 'Success!',
       message: 'Your request has been sent 💛',
       position: 'topRight',
     });
+
     closeModal();
   } catch (err) {
     iziToast.error({
       title: 'Error',
-      message: 'Failed to send message. Try again later 💔',
+      message: 'Failed to send. Try again later 💔',
       position: 'topRight',
     });
+    console.error('UPLOAD error:', err);
+    isSending = false;
   }
 });
