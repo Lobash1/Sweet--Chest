@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = form.querySelector('input[name="phone"]');
     const phone = phoneInput?.value.trim();
     const checkbox = document.querySelector('.order-checkbox');
-    const product = form.dataset.product || null; // ⭐ добавлено
+    const product = form.dataset.product || null;
 
     if (!phone) {
       iziToast.error({
@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // === СЕРВЕР ДЛЯ ЗАКАЗОВ ===
     const API_URL = window.location.origin.includes('localhost')
       ? 'http://localhost:3000/send'
       : 'https://sweet-chest.onrender.com/send';
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const response = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ phone, product }), // ⭐ добавлено
+        body: JSON.stringify({ phone, product }),
       });
 
       const data = await response.json();

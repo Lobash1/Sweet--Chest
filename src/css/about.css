@@ -1,11 +1,10 @@
-/* ===================== ABOUT SECTION ===================== */
-
 .about {
-  min-height: 10vh;
   background: var(--white);
   padding: 60px 20px;
+  min-height: auto;
 }
 
+/* ====== CONTAINER ====== */
 .about-container {
   display: flex;
   flex-direction: column;
@@ -16,6 +15,7 @@
   margin: 0 auto;
 }
 
+/* ====== TEXT BLOCK ====== */
 .about-texts {
   display: flex;
   flex-direction: column;
@@ -60,6 +60,7 @@
   margin-top: 6px;
 }
 
+/* ====== BUTTON ====== */
 .about-btn {
   font-weight: 500;
   font-size: 16px;
@@ -78,8 +79,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* ======= WOMAN IMAGE ======= */
-
+/* ====== WOMAN IMAGE BLOCK ====== */
 .about-woman {
   position: relative;
   width: 100%;
@@ -104,6 +104,7 @@
   display: none;
 }
 
+/* ====== NAME CARD ====== */
 .about-name {
   margin-top: 20px;
   text-align: center;
@@ -130,15 +131,13 @@
   clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
 }
 
-/* ===================== MODAL ASK JULIA ===================== */
-
+/* ====== MODAL ====== */
 #julia-modal {
   position: fixed;
   inset: 0;
   display: none;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(3px);
   z-index: 2000;
 }
 
@@ -146,12 +145,15 @@
   display: flex;
 }
 
+/* overlay with blur fix */
 .modal-overlay {
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
 }
 
+/* CONTENT */
 .modal-content {
   position: relative;
   background: var(--white);
@@ -175,14 +177,16 @@
   border: none;
   color: #7e868e;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
-.modal-close:hover {
+.modal-close:hover,
+.modal-close:focus {
   color: #2e363e;
+  outline: none;
 }
 
-/* ===== CONTENT ===== */
-
+/* ====== MODAL TEXT ====== */
 .about-modal-title {
   font-weight: 600;
   font-size: 22px;
@@ -197,21 +201,18 @@
   margin-bottom: 20px;
 }
 
+/* ====== FORM ====== */
 .about-modal-form {
   display: flex;
   flex-direction: column;
   gap: 18px;
 }
 
-/* ===== Label ===== */
-
 .modal-label-about {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-
-/* ===== Textarea ===== */
 
 .modal-textarea {
   width: 100%;
@@ -223,6 +224,7 @@
   line-height: 1.4;
   background: #f2f6fa;
   resize: none;
+  box-sizing: border-box;
 }
 
 .modal-textarea:focus {
@@ -230,8 +232,7 @@
   outline: none;
 }
 
-/* ===== PHONE INPUT + ICON ===== */
-
+/* PHONE INPUT */
 .modal-phone-wrap {
   position: relative;
 }
@@ -256,6 +257,7 @@
   font-size: 16px;
   line-height: 1.4;
   background: #f2f6fa;
+  box-sizing: border-box;
 }
 
 .modal-input-content:focus {
@@ -263,15 +265,14 @@
   outline: none;
 }
 
-/* ===== Autofill Fix ===== */
+/* AUTO-FILL FIX */
 input:-webkit-autofill,
 textarea:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #f2f6fa inset !important;
   -webkit-text-fill-color: #2e363e !important;
 }
 
-/* ===== Submit Button ===== */
-
+/* BUTTON */
 .modal-btn {
   width: 100%;
   height: 50px;
@@ -282,36 +283,163 @@ textarea:-webkit-autofill {
   font-weight: 500;
   color: #2e363e;
   cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .modal-btn:hover {
   background: #ffcf3a;
 }
 
-/* ===================== MEDIA ===================== */
-
+/* ====== RESPONSIVE ====== */
 @media (min-width: 768px) {
+  .about {
+    padding: 80px 40px;
+  }
+
   .modal-content {
     max-width: 420px;
     padding: 40px 30px;
   }
+
   .modal-btn {
     height: 60px;
     font-size: 16px;
   }
+
+  .about-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .about-texts {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .about-woman {
+    min-width: 420px;
+    height: 420px;
+  }
+
+  .about-photo,
+  .about-krug,
+  .about-photo1,
+  .about-berry,
+  .about-leaf {
+    display: block;
+    position: absolute;
+  }
+
+  .about-krug {
+    top: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 393px;
+    z-index: 1;
+  }
+
+  .about-photo {
+    top: -50px;
+    left: 53%;
+    transform: translateX(-50%);
+    width: 320px;
+    z-index: 3;
+  }
+
+  .about-photo1 {
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    z-index: 2;
+  }
+
+  .about-berry {
+    top: 10px;
+    left: 0;
+    width: 170px;
+  }
+
+  .about-leaf {
+    top: 10px;
+    right: 0;
+    width: 170px;
+  }
+
+  .about-name {
+    position: absolute;
+    bottom: -100px;
+    z-index: 3;
+  }
 }
 
-@media (min-width: 1200px) {
+/* ====== DESKTOP 1200px ====== */
+@media only screen and (min-width: 1200px) {
+  .about {
+    min-height: 100vh;
+  }
+
+  .about-container {
+    gap: 20px;
+  }
+
+  .about-texts {
+    gap: 50px;
+    max-width: 580px;
+  }
+
   .about-title {
     font-size: 48px;
   }
-  .modal-content {
-    max-width: 460px;
+
+  .about-text {
+    gap: 30px;
+    max-width: 438px;
+  }
+
+  .about-item {
+    font-size: 18px;
+  }
+
+  .about-btn {
+    font-size: 18px;
+    padding: 30px 50px;
+  }
+
+  .about-woman {
+    width: 580px;
+    height: 500px;
+  }
+
+  .about-krug {
+    top: 55px;
+    width: 621px;
+  }
+
+  /* .about-photo {
+    width: 525px;
+    top: -140px;
+    left: 50%;
+    transform: translateX(-50%);
+  } */
+
+  /* .about-photo1 {
+    width: 624px;
+    top: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+  } */
+
+  .about-name {
+    bottom: -48px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 
-/* ===================== ANIMATION ===================== */
-
+/* ====== ANIMATION ====== */
 @keyframes fadeIn {
   from {
     opacity: 0;

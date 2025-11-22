@@ -21,7 +21,6 @@
   background: url('/img/hero/smoke.png') bottom center/contain no-repeat;
   opacity: 0.6;
   z-index: 2;
-  /* animation: float 8s ease-in-out infinite; */
 }
 
 .hero-raspberries {
@@ -97,7 +96,6 @@
   }
 }
 
-/* Мигаючий курсор */
 .hero-title::before {
   content: '';
   position: absolute;
@@ -105,7 +103,6 @@
   left: 0;
   height: 100%;
   width: 2px;
-  /* background: #fed84c; */
   background: #081130;
   animation: blink 0.7s infinite, moveCursor 4s steps(30, end) forwards;
 }
@@ -150,7 +147,7 @@
 }
 .btn {
   padding: 20px 40px;
-  max-width: 277px;
+
   height: auto;
   background: #fed84c;
   border-radius: 8px;

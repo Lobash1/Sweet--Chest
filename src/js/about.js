@@ -13,18 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // ---- URL для локалки и продакшена ---- //
   const API_URL = window.location.origin.includes('localhost')
     ? 'http://localhost:3000/ask'
     : 'https://sweet-chest.onrender.com/ask';
 
-  // ---- открыть ---- //
   openBtn.addEventListener('click', () => {
     modal.classList.add('open');
     document.body.style.overflow = 'hidden';
   });
 
-  // ---- закрыть ---- //
   const closeModal = () => {
     modal.classList.remove('open');
     document.body.style.overflow = '';
@@ -34,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', closeModal);
 
-  // ---- отправка ---- //
   form.addEventListener('submit', async e => {
     e.preventDefault();
 

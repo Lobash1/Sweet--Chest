@@ -7,18 +7,17 @@ const closeBtn = modal.querySelector('.modal-close');
 const overlay = modal.querySelector('.modal-overlay');
 const productName = document.getElementById('modal-product-name');
 let currentProduct = '';
-let currentImage = ''; // 🖼️ добавим переменную для картинки
+let currentImage = '';
 
 document.addEventListener('DOMContentLoaded', () => {
   const title = document.querySelector('.hero-title');
   if (!title) return;
 
-  // === открыть модалку ===
   orderButtons.forEach(btn => {
     btn.addEventListener('click', e => {
       const block = e.target.closest('.block');
       const product = block.querySelector('.name').textContent.trim();
-      const img = e.target.closest('.item').querySelector('img').src; // 🖼️ ссылка на фото
+      const img = e.target.closest('.item').querySelector('img').src;
 
       currentProduct = product;
       currentImage = img;
@@ -28,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // === закрыть модалку ===
   const closeModal = () => {
     modal.classList.remove('open');
     document.body.style.overflow = '';
@@ -37,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
   closeBtn.addEventListener('click', closeModal);
   overlay.addEventListener('click', closeModal);
 
-  // === отправка формы ===
   document.getElementById('modal-form').addEventListener('submit', async e => {
     e.preventDefault();
     const phone = e.target.elements.phone.value.trim();
@@ -58,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify({
           phone,
           product: currentProduct,
-          image: currentImage, // 🖼️ теперь передаем и ссылку
+          image: currentImage,
         }),
       });
 

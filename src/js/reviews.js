@@ -86,54 +86,6 @@ function renderReviews() {
     .join('');
 }
 
-// function initReviewsSwiper() {
-//   const swiper = new Swiper('.reviews-swiper', {
-//     modules: [Navigation, Pagination, Autoplay],
-//     loop: true,
-//     slidesPerView: 'auto',
-//     centeredSlides: true,
-//     spaceBetween: 40,
-//     speed: 700,
-//     autoHeight: true,
-//     observer: true,
-//     observeParents: true,
-//     observeSlideChildren: true,
-//     autoplay: {
-//       delay: 8000,
-//       disableOnInteraction: false,
-//     },
-//     navigation: {
-//       nextEl: '.swiper-button-next',
-//       prevEl: '.swiper-button-prev',
-//     },
-//   });
-
-//   console.log('reviews.js loaded');
-
-//   // делегированный обработчик, работающий и для клонов
-//   const container = document.querySelector('.reviews-swiper');
-//   container.addEventListener('click', e => {
-//     console.log('click in swiper captured', e.target);
-
-//     const btn = e.target.closest('.read-more-btn');
-//     console.log('closest .read-more-btn =', btn);
-//     if (!btn) return;
-
-//     const content = btn.previousElementSibling;
-
-//     if (!content) return;
-
-//     content.classList.toggle('expanded');
-//     btn.textContent = content.classList.contains('expanded')
-//       ? 'Hide review'
-//       : 'Read full review';
-
-//     swiper.updateAutoHeight(400);
-//   });
-
-//   return swiper;
-// }
-
 function initReviewsSwiper() {
   const swiper = new Swiper('.reviews-swiper', {
     modules: [Navigation, Pagination, Autoplay],

@@ -4,7 +4,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 150vh;
   padding: 60px 20px;
   overflow: hidden;
 }
@@ -31,7 +30,6 @@
   position: absolute;
   pointer-events: none;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  /* z-index: 1; */
 }
 
 .smoke-top,
@@ -105,9 +103,6 @@
     align-items: flex-end;
     min-height: 700px;
     overflow: visible;
-
-    min-height: 100vh;
-    /* padding: 60px 20px; */
   }
 
   .phone {
@@ -147,7 +142,7 @@
   .berry {
     width: 18vw;
     right: 5vw;
-    top: 15vh;
+    top: 5vh;
     animation: float 10s ease-in-out infinite;
   }
 }
@@ -190,7 +185,7 @@
   background: #fff;
   position: relative;
   overflow-y: auto;
-  max-height: 90vh; /* 🔥 теперь есть скролл */
+  max-height: 90vh;
 }
 
 .modal-title {

@@ -12,12 +12,10 @@ const form = document.getElementById('upload-form');
 let uploadedImage = null;
 let isSending = false;
 
-// ---- URL для локалки и продакшена ---- //
 const API_URL = window.location.origin.includes('localhost')
   ? 'http://localhost:3000/upload'
   : 'https://sweet-chest.onrender.com/upload';
 
-// ---- Модалка ---- //
 const openModal = () => {
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -32,12 +30,10 @@ const closeModal = () => {
   isSending = false;
 };
 
-// ---- Открытие/Закрытие ---- //
 uploadBtn?.addEventListener('click', openModal);
 overlay?.addEventListener('click', closeModal);
 closeBtn?.addEventListener('click', closeModal);
 
-// ---- Выбор файла ---- //
 fileInput.addEventListener('change', e => {
   const file = e.target.files[0];
   if (!file) return;
@@ -50,11 +46,10 @@ fileInput.addEventListener('change', e => {
   reader.readAsDataURL(file);
 });
 
-// ---- Отправка ---- //
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
-  if (isSending) return; // 🚫 защита от двойного клика
+  if (isSending) return;
   isSending = true;
 
   const phone = form.elements.phone.value.trim();

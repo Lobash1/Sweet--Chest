@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   btnNext.addEventListener('click', showNext);
 
   document.addEventListener('keydown', e => {
-    if (!modal.classList.contains('show')) return; // якщо модалка закрита — нічого не робимо
+    if (!modal.classList.contains('show')) return;
 
     if (e.key === 'Escape') closeModal();
     if (e.key === 'ArrowLeft') showPrev();

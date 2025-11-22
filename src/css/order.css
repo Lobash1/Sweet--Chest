@@ -125,6 +125,7 @@
 }
 
 /* ====================decor============= */
+
 .decor {
   position: absolute;
   pointer-events: none;
@@ -169,6 +170,7 @@
   .order-wrapper {
     max-width: 600px;
     padding: 40px 30px;
+    margin: 50px auto 0;
   }
 
   .order-form {
@@ -211,51 +213,69 @@
     right: -40px;
   }
 }
+
 @media only screen and (min-width: 1200px) {
-  .order-wrapper {
-    padding: 70px 99px;
-    width: 1180px;
-    margin: 70px auto;
+  .order {
+    padding: 140px 0 120px;
   }
 
-  .order-wrapper-text {
+  .order-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0px;
-    gap: 12px;
+    padding: 70px 99px;
+    gap: 36px;
+    max-width: 1180px;
+    height: auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    margin: 70px auto 0;
+  }
+
+  .order-wrapper-text {
     margin-bottom: 36px;
   }
+
   .order-title {
-    font-size: 35px;
-    line-height: 1.33;
+    font-size: 34px;
   }
+
   .order-description {
     font-size: 21px;
   }
-  .order-form {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 24px;
-    margin-bottom: 24px;
-  }
+
   .order-label {
-    width: 313px;
-    height: 80px;
-    padding: 0 16px 0 48px;
-  }
-  .order-btn {
     width: 380px;
     height: 80px;
-    padding: 29px 41px;
+    padding: 0 16px 0 50px;
+    background: #f8fbff;
+    border-radius: 8px;
+    width: 380px;
+    height: 85px;
+  }
+
+  .order-input {
     font-size: 18px;
   }
+
+  .order-btn {
+    border-radius: 8px;
+    padding: 29px 41px;
+    width: 380px;
+    height: 86px;
+  }
+
   .top-left,
   .top-right,
   .bottom-left,
   .bottom-right {
-    width: 100px;
+    width: 120px;
+  }
+  .bottom-left {
+    bottom: -70px;
+  }
+  .bottom-right {
+    bottom: -70px;
   }
 }
